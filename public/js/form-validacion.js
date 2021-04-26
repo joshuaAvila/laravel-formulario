@@ -4,15 +4,17 @@ const inputs = document.querySelectorAll('#formulario input, textarea');
 
 const expresiones = {
 	empresa: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
-	ruc: /^[0-9]+(001)$/,
-	nombre: /^[a-zA-ZÀ-ÿ\s]$/, // Letras y espacios, pueden llevar acentos.
-    apellido: /^[a-zA-ZÀ-ÿ\s]$/, // Letras y espacios, pueden llevar acentos.
+	ruc: /^\d{10,13}(001)$/,
+	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+    apellido: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-	telefono: /^\d{7,14}$/, // 7 a 14 numeros.
-	direccion: /^[a-zA-ZÀ-ÿ\s0-9]$/,
-	referencia: /^[a-zA-ZÀ-ÿ\s0-9]$/,
+	telefono: /^\d{8,14}$/, // 7 a 14 numeros.
+	direccion: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
+	referencia: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
 	contenedores: /^\d{1,5}$/,
-	field_name: /^[a-zA-ZÀ-ÿ\s0-9-]$/
+	field_name: /^[a-zA-Z0-9\_\-]{4,16}$/,
+	detalle: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
+	requerimiento: /^[a-zA-Z0-9\_\-]{4,16}$/
 
 }
 
@@ -23,40 +25,40 @@ const validarFormulario = (e) =>{
 		 		validarCampo(expresiones.empresa, e.target, 'empresa');
 		break;
 		case "ruc": 
-		 		
+				validarCampo(expresiones.ruc ,e.target, 'ruc');
 		break;
 		case "nombre": 
-		 		console.log('Ingrese el Nombre');
+		 		validarCampo(expresiones.nombre ,e.target, 'nombre');
 		break;
 		case "apellido": 
-		 		console.log('Ingrese el Apellido');
+		 		validarCampo(expresiones.apellido ,e.target, 'apellido');
 		break;
 		case "correo": 
-		 		console.log('Ingrese el Correo');
+		 		validarCampo(expresiones.correo ,e.target, 'correo');
 		break;
 		case "telefono1": 
-		 		console.log('Ingrese El telefono 1');
+		 		validarCampo(expresiones.telefono ,e.target, 'telefono1');
 		break;
 		case "telefono2": 
-		 		console.log('Ingrese El Telefono 2');
+		 		validarCampo(expresiones.telefono ,e.target, 'telefono2');
 		break;
 		case "direccion": 
-		 		console.log('Ingrese la direccion');
+		 		validarCampo(expresiones.direccion ,e.target, 'direccion');
 		break;
 		case "referencia": 
-		 		console.log('Ingrese la referencia');
+		 		validarCampo(expresiones.referencia , e.target, 'referencia');
 		break;
 		case "contenedores": 
-		 		console.log('Ingrese el numero de contenedores');
+		 		validarCampo(expresiones.contenedores ,e.target, 'contenedores');
 		break;
 		case "requerimiento": 
-		 		console.log('Ingrese el requerimiento o asunto');
+		 		validarCampo(expresiones.requerimiento ,e.target, 'requerimiento');
 		break;
 		case "detalle": 
-		 		console.log('Ingrese los detalle del asunto');
+		 		validarCampo(expresiones .detalle,e.target, 'detalle');
 		break;
 		case "field_name[]": 
-		 		console.log('Ingrese el codigo del contenedor');
+		 		validarCampo(expresiones.field_name ,e.target, 'identificador');
 		break;
 	}
 	
